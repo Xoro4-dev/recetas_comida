@@ -1,0 +1,2 @@
+{ "name": "recetas_comida", "private": true, "type": "module",
+  "scripts": { "test": "node --test test/parser.test.mjs", "start": "npx http-server app -p 8080" } }
