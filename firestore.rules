@@ -1,0 +1,7 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Uso privado de pareja: el "código de pareja" actúa de secreto. Ver README.
+    match /spaces/{space}/{document=**} { allow read, write: if true; }
+  }
+}

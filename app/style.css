@@ -1,0 +1,32 @@
+:root{--bg:#fff5f8;--card:#fff;--ink:#2b2233;--accent:#ff5d8f;--muted:#8d849a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:-apple-system,system-ui,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);padding-top:env(safe-area-inset-top)}
+main{padding:16px 16px 100px;max-width:640px;margin:auto}
+h1{font-size:28px;margin:8px 0 16px}h2{font-size:18px;margin:20px 0 8px;color:var(--accent)}
+#tabs{position:fixed;bottom:0;left:0;right:0;display:flex;background:rgba(255,255,255,.85);backdrop-filter:blur(16px);padding-bottom:env(safe-area-inset-bottom);border-top:1px solid #0001}
+#tabs button{flex:1;border:0;background:none;font-size:22px;padding:10px 0 6px;display:flex;flex-direction:column;align-items:center;color:var(--muted)}
+#tabs button span{font-size:11px;margin-top:2px}#tabs button.on{color:var(--accent);font-weight:600}
+.card{background:var(--card);border-radius:20px;padding:14px 16px;margin:8px 0;box-shadow:0 4px 18px #0000000d}
+input,textarea,select{width:100%;font:inherit;padding:12px 14px;border:1.5px solid #0001;border-radius:14px;margin:6px 0;background:#fff}
+textarea{min-height:110px}
+.btn{border:0;border-radius:14px;padding:12px 18px;font:inherit;font-weight:600;color:#fff;background:var(--accent)}
+.btn.ghost{background:#0000000a;color:var(--ink)}
+.row{display:flex;align-items:center;gap:10px}.grow{flex:1}.muted{color:var(--muted);font-size:13px}
+.done .t{text-decoration:line-through;opacity:.5}
+.chk{width:26px;height:26px;accent-color:var(--accent);flex:none}
+.chip{display:inline-block;background:#ff5d8f1a;color:var(--accent);border-radius:99px;padding:2px 10px;font-size:12px;margin-right:6px}
+.big{display:block;width:100%;border:0;border-radius:24px;padding:22px;margin:10px 0;font-size:22px;font-weight:700;color:#fff;box-shadow:0 8px 24px #0002;transition:transform .1s}
+.big:active{transform:scale(.97)}
+.me{display:flex;gap:8px;margin-bottom:8px}.me button{flex:1}
+details summary{cursor:pointer;font-weight:600}ul.ing{margin:8px 0;padding-left:20px}
+#overlay{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;overflow:hidden}
+#overlay[hidden]{display:none}
+#overlay .msg{font-size:40px;font-weight:800;text-shadow:0 4px 20px #0006;padding:0 20px;z-index:2}
+#overlay .from{font-size:16px;opacity:.9;margin-top:8px;z-index:2}
+.p{position:absolute;top:-40px;font-size:34px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(115vh) rotate(360deg)}}
+.theme-love{background:linear-gradient(160deg,#ff8fb1,#ff5d8f)}
+.theme-romantic{background:radial-gradient(circle,#ff2e63,#7a0a30)}
+.theme-beer{background:linear-gradient(160deg,#ffd35a,#d98200)}
+.theme-smoke{background:linear-gradient(160deg,#9ca3af,#374151)}
+.theme-cuddle{background:linear-gradient(160deg,#c4b5fd,#7c5cd6)}
