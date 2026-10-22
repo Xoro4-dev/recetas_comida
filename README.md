@@ -25,3 +25,25 @@ Abre dos pestañas con el mismo código de pareja y distinto nombre: los botones
 
 ## Qué instalar
 Solo **Node.js** (ya instalado) y, para desplegar, `firebase-tools`. Visual Studio Code sirve para editar; Android Studio solo es útil como emulador opcional.
+
+## App nativa (APK / iOS) con Capacitor
+Un solo proyecto para Android e iOS: Capacitor empaqueta la carpeta `app/` (`capacitor.config.json`).
+
+**Android (APK)** — requiere Android Studio/SDK y JDK 17:
+```
+npm install
+npm run cap:android     # genera la carpeta android/ (solo la primera vez)
+npm run build:apk       # android/app/build/outputs/apk/debug/app-debug.apk
+```
+Copia el APK al móvil e instálalo (permite "orígenes desconocidos"). Tras cambiar `app/`, ejecuta `npx cap sync`.
+
+**iOS** — requiere Mac con Xcode (Apple no permite compilar iOS en otro sistema):
+```
+npm install
+npm run cap:ios
+npx cap open ios        # Xcode → Run en tu iPhone (cuenta Apple gratuita: la app caduca a los 7 días; instalación permanente/TestFlight requiere cuenta de pago)
+```
+
+**Sin Mac / sin Android Studio**: el workflow `Build apps` de GitHub Actions (Actions → Build apps → Run workflow) compila el APK y descarga el artefacto; el job de iOS solo produce un build para simulador (sin firmar).
+
+Nota: en la app nativa las notificaciones push en segundo plano necesitarían el plugin `@capacitor/push-notifications` (FCM/APNs); los avisos con la app abierta, la vibración y la sincronización funcionan igual.

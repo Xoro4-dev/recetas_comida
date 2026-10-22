@@ -10,7 +10,7 @@ const data = { recipes: [], restaurants: [], pings: [] };
 const startedAt = Date.now();
 const seen = new Set();
 
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(() => {});
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('./sw.js').catch(() => {});
 
 async function init() {
   if (!settings.name || !settings.space) return setup();

@@ -1,0 +1,6 @@
+{
+  "appId": "com.recetascomida.app",
+  "appName": "Recetas Comida",
+  "webDir": "app",
+  "server": { "androidScheme": "https" }
+}
