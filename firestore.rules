@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // El código de pareja actúa como secreto: solo se puede acceder
+    // conociendo la ruta exacta; no se permite listar los códigos.
+    match /couples/{code}/{document=**} {
+      allow read, write: if code.size() >= 8;
+    }
+  }
+}

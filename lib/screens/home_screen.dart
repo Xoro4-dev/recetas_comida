@@ -3,12 +3,27 @@ import 'package:flutter/material.dart';
 import '../theme/pixel_theme.dart';
 import '../widgets/checker_background.dart';
 import '../widgets/pixel_button.dart';
+import 'pair_code_screen.dart';
 import 'section_screen.dart';
+import 'shopping_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+  void _openPairCode(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (_) => PairCodeScreen(
+        onDone: () => Navigator.of(context).popUntil((r) => r.isFirst),
+      ),
+    ));
+  }
+
   void _open(BuildContext context, String title, Color color) {
+    if (title == 'Lista de la compra') {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (_) => const ShoppingScreen()));
+      return;
+    }
     Navigator.of(context).push(MaterialPageRoute(
       builder: (_) => SectionScreen(
         title: title.toUpperCase(),
@@ -57,6 +72,12 @@ class HomeScreen extends StatelessWidget {
                           PixelColors.green),
                     ],
                   ),
+                ),
+                PixelButton(
+                  label: 'CÓDIGO DE PAREJA',
+                  color: PixelColors.orange,
+                  fontSize: 10,
+                  onPressed: () => _openPairCode(context),
                 ),
               ],
             ),
